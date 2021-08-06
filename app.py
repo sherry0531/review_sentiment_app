@@ -5,12 +5,12 @@ from tensorflow import keras
 from keras import models
 from keras import layers
 from keras.datasets import imdb
-import time, datetime
+import time, datetime, os
 import wandb
 
 app = Flask(__name__)
 
-wandb.login(key='dac290e00d055cc1030bc53cc495eca88eb95f86')
+wandb.login(key=os.environ['WANDB_KEY'])
 
 experiment_name = datetime.datetime.today().strftime('%Y-%m-%d')
 run=wandb.init(project='IMDB sentiment',
